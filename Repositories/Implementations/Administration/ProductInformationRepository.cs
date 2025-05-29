@@ -21,9 +21,14 @@ public class ProductInformationRepository : IProductInformationRepository
         List<ProductInformation> productInformation = await _context.Products.FromSqlRaw("SELECT * FROM get_active_products()").ToListAsync();
         return productInformation;
     }
-    public async Task<List<ProductInformation>> GetProductsById(int productId)
+    public async Task<ProductInformation> GetProductsById(int productId)
     {
-        List<ProductInformation> productInformation = await _context.Products.FromSqlRaw("SELECT * FROM get_active_products()").ToListAsync();
+        var productIdParam = new NpgsqlParameter("productId", productId);
+
+        var productInformation = await _context.Products
+            .FromSqlRaw("SELECT * FROM get_product_by_id(@productId)", productIdParam)
+            .FirstOrDefaultAsync();
+
         return productInformation;
     }
     public async Task<bool> SaveProductDetails(ProductInformation productInformation)
@@ -52,7 +57,7 @@ public class ProductInformationRepository : IProductInformationRepository
         return (bool)isSavedValue.Value; // properly cast the output value
     }
     public async Task<bool> DeleteProductInformations(int productId)
-{
+    {
         using var connection = new NpgsqlConnection(_context.Database.GetDbConnection().ConnectionString);
         await connection.OpenAsync();
 
@@ -61,6 +66,6 @@ public class ProductInformationRepository : IProductInformationRepository
 
         await command.ExecuteNonQueryAsync();
         return true;
-}
+    }
 
 }

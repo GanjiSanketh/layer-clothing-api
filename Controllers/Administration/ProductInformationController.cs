@@ -32,9 +32,9 @@ namespace LayerApi.Contrllers.Administration.ProductInformationController
         //[Authorize]
         [HttpGet]
         [Route("GetProductsById")]
-        public async Task<List<ProductInformation>> GetProductsById(int productId)
+        public async Task<ProductInformation> GetProductsById(int productId)
         {
-            List<ProductInformation> productInformation = await _productInformationRepository.GetProductsById(productId);
+            ProductInformation productInformation = await _productInformationRepository.GetProductsById(productId);
             return productInformation;
         }
         //[Authorize]

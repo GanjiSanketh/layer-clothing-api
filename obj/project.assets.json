@@ -4628,31 +4628,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sankethg\\.nuget\\packages\\": {},
+    "C:\\Users\\G SANKETH\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "E:\\layer-clothing-api\\LayerApi.csproj",
       "projectName": "LayerApi",
       "projectPath": "E:\\layer-clothing-api\\LayerApi.csproj",
       "packagesPath": "C:\\Users\\G SANKETH\\.nuget\\packages\\",
       "outputPath": "E:\\layer-clothing-api\\obj\\",
-=======
-      "projectUniqueName": "E:\\Sanketh\\layer-clothing-api\\LayerApi.csproj",
-      "projectName": "LayerApi",
-      "projectPath": "E:\\Sanketh\\layer-clothing-api\\LayerApi.csproj",
-      "packagesPath": "C:\\Users\\sankethg\\.nuget\\packages\\",
-      "outputPath": "E:\\Sanketh\\layer-clothing-api\\obj\\",
->>>>>>> 3365ab472c501256312a15677dfa6990909010a6
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\sankethg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\G SANKETH\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4661,7 +4653,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4679,7 +4670,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -4727,16 +4719,22 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
     {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\layer-clothing-api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
+    {
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "LayerApi depends on Npgsql.EntityFrameworkCore.PostgreSQL (>= 8.0.3) but Npgsql.EntityFrameworkCore.PostgreSQL 8.0.3 was not found. An approximate best match of Npgsql.EntityFrameworkCore.PostgreSQL 8.0.4 was resolved.",
+      "message": "LayerApi depends on Npgsql.EntityFrameworkCore.PostgreSQL (>= 8.0.3) but Npgsql.EntityFrameworkCore.PostgreSQL 8.0.3 was not found. Npgsql.EntityFrameworkCore.PostgreSQL 8.0.4 was resolved instead.",
       "libraryId": "Npgsql.EntityFrameworkCore.PostgreSQL",
       "targetGraphs": [
         "net8.0"
