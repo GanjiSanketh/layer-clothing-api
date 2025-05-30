@@ -1,27 +1,17 @@
-# Base image for runtime
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+# Stage 1: Build the application
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
-EXPOSE 80
 
-# Build image
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
+# Copy the .csproj and restore dependencies
+COPY LayerApi.csproj ./
+RUN dotnet restore
 
-# Copy csproj and restore
-COPY ["LayerApi/LayerApi.csproj", "LayerApi/"]
-RUN dotnet restore "LayerApi/LayerApi.csproj"
+# Copy the rest of the application
+COPY . ./
+RUN dotnet publish -c Release -o out
 
-# Copy rest of the code
-COPY . .
-WORKDIR "/src/LayerApi"
-RUN dotnet build "LayerApi.csproj" -c Release -o /app/build
-
-# Publish
-FROM build AS publish
-RUN dotnet publish "LayerApi.csproj" -c Release -o /app/publish
-
-# Final image
-FROM base AS final
+# Stage 2: Build the runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/out .
 ENTRYPOINT ["dotnet", "LayerApi.dll"]
