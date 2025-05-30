@@ -53,11 +53,15 @@ namespace LayerApi.Contrllers.Administration.ProductInformationController
             bool isUpdated = await _productInformationRepository.DeleteProductInformations(productId);
             return isUpdated;
         }
-        
-        [HttpGet("test")]
+
+        [HttpGet("testApiInformation")]
         public IActionResult Test()
         {
-            return Ok("API is working");
+            var productInformation = new ProductInformation
+            {
+                ProductName = "This Response is from the API (Deployed Succesfully)"
+            };
+            return Ok(productInformation);
         }
     }
 }
