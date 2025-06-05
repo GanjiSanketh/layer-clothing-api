@@ -281,3 +281,4 @@ E:\layer-clothing-api\obj\Debug\net8.0\refint\LayerApi.dll
 E:\layer-clothing-api\obj\Debug\net8.0\LayerApi.pdb
 E:\layer-clothing-api\obj\Debug\net8.0\LayerApi.genruntimeconfig.cache
 E:\layer-clothing-api\obj\Debug\net8.0\ref\LayerApi.dll
+E:\layer-clothing-api\bin\Debug\net8.0\BCrypt.Net-Next.dll
